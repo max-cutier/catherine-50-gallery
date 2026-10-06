@@ -275,26 +275,18 @@ h1 .family-name { font-size: .49em; letter-spacing: -.035em; margin-top: 12px; }
   .video-pair { grid-template-columns: minmax(0, 1fr); gap: 45px; }
 }
 
-/* One continuous collage; source comments retain the informal groups.
-   Columns pack varied full-frame media without fixed row-height gaps. */
-.collage-introduction { max-width: 980px; margin: 0 auto 65px; text-align: center; font-family: var(--serif); color: var(--gold); font-size: clamp(25px, 2.7vw, 38px); line-height: 1.5; }
-.friends-collage { columns: 4; column-gap: 18px; max-width: 1220px; margin: 0 auto; }
-.friends-collage .collage-item { display: inline-block; vertical-align: top; width: 100%; min-width: 0; margin: 0 0 18px; break-inside: avoid; }
+/* Consecutive full-frame media share compact, justified rows. */
+.collage-introduction { max-width: 980px; margin: 0 auto 45px; text-align: center; font-family: var(--serif); color: var(--gold); font-size: clamp(25px, 2.7vw, 38px); line-height: 1.5; }
+.friends-collage { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 18px; max-width: 1220px; margin: 0 auto; }
+.friends-collage .collage-item { flex: 0 0 calc((100% - 36px) / 3); min-width: 0; margin: 0; }
 .friends-collage .paper { padding: 6px; }
 .friends-collage .video-card img { max-height: none; }
-@media (max-width: 1100px) { .friends-collage { columns: 3; } }
+.friends-collage .collage-letter { flex: 0 0 100%; padding: clamp(24px, 4vw, 48px); background: #fff9f380; font-size: clamp(17px, 1.45vw, 20px); line-height: 1.85; overflow-wrap: anywhere; }
+.collage-letter p { margin: 0; white-space: pre-wrap; }
 @media (max-width: 700px) {
-  .collage-introduction { margin-bottom: 45px; }
-  .friends-collage { columns: 2; column-gap: 14px; }
-  .friends-collage .collage-item { margin-bottom: 14px; }
+  .friends-collage { gap: 14px; }
+  .friends-collage .collage-item { flex-basis: calc((100% - 14px) / 2); }
+  .friends-collage .collage-letter { flex-basis: 100%; padding: 20px; }
   .friends-collage .play { width: 48px; height: 48px; }
 }
-@media (max-width: 440px) { .friends-collage { columns: 1; max-width: 360px; } }
-
-/* Supplied letters are independent pieces, never media captions. */
-.grand-hall .friends-collage + .friends-collage { margin-top: 18px; }
-.collage-letter { max-width: 850px; margin: 32px auto; padding: clamp(24px, 4vw, 48px); background: #fff9f380; font-size: clamp(17px, 1.45vw, 20px); line-height: 1.85; overflow-wrap: anywhere; }
-.collage-letter p { margin: 0; white-space: pre-wrap; }
-.friends-collage.collage-small { columns: 2; max-width: 620px; }
-@media (max-width: 440px) { .friends-collage.collage-small { columns: 1; max-width: 360px; } .collage-letter { margin: 24px auto; padding: 20px; } }
-.friends-collage.collage-small { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; columns: auto; } @media (max-width: 440px) { .friends-collage.collage-small { grid-template-columns: minmax(0, 1fr); gap: 14px; } }
+@media (max-width: 440px) { .friends-collage { max-width: 360px; } .friends-collage .collage-item { flex-basis: 100%; } }

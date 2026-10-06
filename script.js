@@ -171,3 +171,42 @@ viewer.addEventListener('close', () => {
   document.body.classList.remove('viewer-open');
   opener?.focus({ preventScroll: true });
 });
+
+
+// Keep source order left-to-right, then down, with uncropped media in equal-height rows.
+const friendsCollage = document.querySelector('#friends-collage');
+if (friendsCollage) {
+  function arrangeFriends() {
+    const width = friendsCollage.clientWidth;
+    const gap = parseFloat(getComputedStyle(friendsCollage).columnGap);
+    const targetHeight = width <= 700 ? 230 : 280;
+    let row = [];
+    let ratios = 0;
+    function finishRow(last = false) {
+      if (!row.length) return;
+      const borders = row.reduce((sum, item) => { const img = item.querySelector('img'); const ratio = Number(img.getAttribute('width')) / Number(img.getAttribute('height')); return sum + (item.classList.contains('paper') ? 12 * (1 - ratio) : 0); }, 0);
+      const available = width - gap * (row.length - 1) - borders - 1;
+      const height = last ? Math.min(targetHeight, available / ratios) : available / ratios;
+      row.forEach(item => {
+        const img = item.querySelector('img');
+        const ratio = Number(img.getAttribute('width')) / Number(img.getAttribute('height'));
+        item.style.flexBasis = `${ratio * (height - (item.classList.contains('paper') ? 12 : 0)) + (item.classList.contains('paper') ? 12 : 0)}px`;
+      });
+      row = []; ratios = 0;
+    }
+    [...friendsCollage.children].forEach(item => {
+      item.style.flexBasis = '';
+      if (item.classList.contains('collage-letter')) { finishRow(true); return; }
+      if (width <= 360) return;
+      const img = item.querySelector('img');
+      const ratio = Number(img.getAttribute('width')) / Number(img.getAttribute('height'));
+      if (!Number.isFinite(ratio) || ratio <= 0) return;
+      row.push(item); ratios += ratio;
+      if (ratios * targetHeight + gap * (row.length - 1) >= width) finishRow();
+    });
+    finishRow(true);
+  }
+  if ('ResizeObserver' in window) new ResizeObserver(arrangeFriends).observe(friendsCollage);
+  else window.addEventListener('resize', arrangeFriends);
+  arrangeFriends();
+}
