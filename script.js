@@ -31,15 +31,76 @@ function emptyView(label, message) {
   content.append(panel);
 }
 
+// Pre-rendered PDF pages keep the book in this tab, including on phones and
+// when index.html is opened directly. Only the selected page is requested.
+function openBook(button) {
+  const count = Number(button.dataset.pageCount);
+  let page = 1;
+  const reader = document.createElement('div');
+  reader.className = 'book-reader';
+  const controls = document.createElement('div');
+  controls.className = 'book-controls';
+  const previous = document.createElement('button');
+  previous.textContent = 'Précédente';
+  previous.setAttribute('aria-label', 'Page précédente');
+  const position = document.createElement('span');
+  position.className = 'book-position';
+  position.setAttribute('aria-live', 'polite');
+  const next = document.createElement('button');
+  next.textContent = 'Suivante';
+  next.setAttribute('aria-label', 'Page suivante');
+  const zoom = document.createElement('button');
+  zoom.textContent = 'Agrandir la page';
+  zoom.setAttribute('aria-pressed', 'false');
+  const sheet = document.createElement('div');
+  sheet.className = 'book-sheet';
+  sheet.tabIndex = 0;
+  sheet.setAttribute('aria-label', 'Page du livre, zone de lecture');
+  const image = document.createElement('img');
+  image.decoding = 'async';
+  sheet.append(image);
+  const save = document.createElement('a');
+  save.className = 'book-save';
+  save.href = button.dataset.book;
+  save.download = 'Livre 50 ans Miteux.pdf';
+  save.textContent = 'Enregistrer le PDF';
+  function showPage() {
+    image.alt = `Page ${page} sur ${count} du livre Pour Miteux`;
+    image.src = `${button.dataset.pages}${page}.webp`;
+    position.textContent = `Page ${page} / ${count}`;
+    previous.disabled = page === 1;
+    next.disabled = page === count;
+    sheet.scrollTop = 0;
+    sheet.scrollLeft = 0;
+  }
+  previous.addEventListener('click', () => { if (page > 1) { page--; showPage(); } });
+  next.addEventListener('click', () => { if (page < count) { page++; showPage(); } });
+  zoom.addEventListener('click', () => {
+    const expanded = sheet.classList.toggle('is-expanded');
+    zoom.setAttribute('aria-pressed', String(expanded));
+    zoom.textContent = expanded ? 'Afficher la page entière' : 'Agrandir la page';
+  });
+  reader.addEventListener('keydown', event => {
+    if (event.key === 'ArrowRight' && page < count) { event.preventDefault(); page++; showPage(); }
+    if (event.key === 'ArrowLeft' && page > 1) { event.preventDefault(); page--; showPage(); }
+  });
+  controls.append(previous, position, next, zoom);
+  reader.append(controls, sheet, save);
+  content.append(reader);
+  showPage();
+}
+
 document.addEventListener('click', event => {
   const button = event.target.closest('[data-photo], [data-video], [data-book]');
   if (!button) return;
   opener = button;
   content.replaceChildren();
   if (button.hasAttribute('data-book')) {
-    title.textContent = 'Le livre de ta sœur';
+    title.textContent = button.dataset.title || 'Le livre de ta sœur';
     const source = button.dataset.book;
-    if (source) {
+    if (button.dataset.pages) {
+      openBook(button);
+    } else if (source) {
       const frame = document.createElement('iframe');
       frame.title = 'Le livre de ta sœur';
       frame.src = source;

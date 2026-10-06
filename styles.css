@@ -122,6 +122,29 @@ dialog::backdrop { background: #51394599; }
 #viewer-content iframe { display: block; width: 100%; height: 65vh; border: 0; }
 .pdf-link { display: inline-block; padding: 12px 0; }
 body.viewer-open { overflow: hidden; }
+.roots-memories, .roots-book-and-video { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: 70px; }
+.roots-memories figcaption, .roots-book-and-video figcaption { font-size: 18px; padding-top: 24px; }
+.roots-book-and-video { align-items: center; margin-top: calc(var(--breath) * 1.5); margin-bottom: calc(var(--breath) * 1.5); }
+.book-real { padding: 0; margin: 0; }
+.book-with-cover { width: min(100%, 365px); min-height: 0; padding: 0; display: block; }
+.book-with-cover img { display: block; width: 100%; height: auto; }
+.family-letter { max-width: 740px; margin: 0 auto; padding: 35px 0; }
+.family-letter p { font-family: var(--serif); font-size: clamp(19px, 1.7vw, 23px); line-height: 2; white-space: pre-line; }
+.book-reader { display: flex; flex-direction: column; gap: 18px; }
+.book-controls { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px 24px; }
+.book-controls button { background: var(--blush); padding: 9px 16px; font-size: 14px; }
+.book-controls button:disabled { opacity: .4; cursor: default; }
+.book-position { font-size: 13px; min-width: 85px; text-align: center; }
+.book-sheet { max-height: 66svh; overflow: auto; background: var(--blush); }
+#viewer-content .book-sheet img { width: auto; max-width: 100%; max-height: 64svh; height: auto; }
+#viewer-content .book-sheet.is-expanded img { width: max(100%, 1000px); max-width: none; max-height: none; }
+.book-save { font-size: 13px; text-align: center; }
+@media (max-width: 700px) {
+  .roots-memories, .roots-book-and-video { grid-template-columns: minmax(0, 1fr); max-width: 520px; gap: 65px; }
+  .family-letter { padding: 0; }
+  .book-controls { gap: 10px; }
+  .book-controls button { padding: 9px 11px; }
+}
 @media (min-width: 1600px) { .room { padding-top: 160px; } }
 @media (max-width: 800px) {
   :root { --gap: 26px; --breath: 85px; }
