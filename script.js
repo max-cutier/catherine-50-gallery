@@ -178,7 +178,7 @@ const friendsCollage = document.querySelector('#friends-collage');
 if (friendsCollage) {
   function arrangeFriends() {
     const width = friendsCollage.clientWidth;
-    const gap = width <= 700 ? 14 : 18;
+    const gap = parseFloat(getComputedStyle(friendsCollage).columnGap);
     const targetHeight = width <= 700 ? 230 : 280;
     let row = [];
     let ratios = 0;
