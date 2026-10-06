@@ -173,40 +173,48 @@ viewer.addEventListener('close', () => {
 });
 
 
-// Keep source order left-to-right, then down, with uncropped media in equal-height rows.
+// Each next tile enters the shortest column: source order always advances downward.
 const friendsCollage = document.querySelector('#friends-collage');
 if (friendsCollage) {
+  let queued = false;
+  let lastWidth = -1;
   function arrangeFriends() {
+    queued = false;
     const width = friendsCollage.clientWidth;
+    if (!width) return;
     const gap = parseFloat(getComputedStyle(friendsCollage).columnGap);
-    const targetHeight = width <= 700 ? 230 : 280;
-    let row = [];
-    let ratios = 0;
-    function finishRow(last = false) {
-      if (!row.length) return;
-      const borders = row.reduce((sum, item) => { const img = item.querySelector('img'); const ratio = Number(img.getAttribute('width')) / Number(img.getAttribute('height')); return sum + (item.classList.contains('paper') ? 12 * (1 - ratio) : 0); }, 0);
-      const available = width - gap * (row.length - 1) - borders - 1;
-      const height = last ? Math.min(targetHeight, available / ratios) : available / ratios;
-      row.forEach(item => {
-        const img = item.querySelector('img');
-        const ratio = Number(img.getAttribute('width')) / Number(img.getAttribute('height'));
-        item.style.flexBasis = `${ratio * (height - (item.classList.contains('paper') ? 12 : 0)) + (item.classList.contains('paper') ? 12 : 0)}px`;
-      });
-      row = []; ratios = 0;
-    }
+    const columns = matchMedia('(max-width: 440px)').matches ? 1 : width < 800 ? 2 : 3;
+    const tileWidth = (width - gap * (columns - 1)) / columns;
+    const bottoms = Array(columns).fill(0);
+    friendsCollage.classList.add('is-staggered');
     [...friendsCollage.children].forEach(item => {
-      item.style.flexBasis = '';
-      if (item.classList.contains('collage-letter')) { finishRow(true); return; }
-      if (width <= 360) return;
-      const img = item.querySelector('img');
-      const ratio = Number(img.getAttribute('width')) / Number(img.getAttribute('height'));
-      if (!Number.isFinite(ratio) || ratio <= 0) return;
-      row.push(item); ratios += ratio;
-      if (ratios * targetHeight + gap * (row.length - 1) >= width) finishRow();
+      if (item.classList.contains('friends-finale')) {
+        const top = Math.max(...bottoms);
+        item.style.width = `${width}px`;
+        item.style.left = '0px';
+        item.style.top = `${top}px`;
+        bottoms.fill(top + item.getBoundingClientRect().height + gap);
+        return;
+      }
+      const column = bottoms.indexOf(Math.min(...bottoms));
+      item.style.width = `${tileWidth}px`;
+      item.style.left = `${column * (tileWidth + gap)}px`;
+      item.style.top = `${bottoms[column]}px`;
+      bottoms[column] += item.getBoundingClientRect().height + gap;
     });
-    finishRow(true);
+    friendsCollage.style.height = `${Math.max(...bottoms) - gap}px`;
+    lastWidth = width;
   }
-  if ('ResizeObserver' in window) new ResizeObserver(arrangeFriends).observe(friendsCollage);
-  else window.addEventListener('resize', arrangeFriends);
+  function queueArrangement() {
+    if (!queued) { queued = true; requestAnimationFrame(arrangeFriends); }
+  }
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(() => {
+      if (friendsCollage.clientWidth !== lastWidth) queueArrangement();
+    }).observe(friendsCollage);
+  }
+  window.addEventListener('resize', queueArrangement);
+  friendsCollage.querySelectorAll('img').forEach(img => img.addEventListener('load', queueArrangement));
+  if (document.fonts) document.fonts.ready.then(queueArrangement);
   arrangeFriends();
 }
