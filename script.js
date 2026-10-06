@@ -54,7 +54,7 @@ document.addEventListener('click', event => {
       emptyView('Le livre est à venir', 'Ses pages s’ouvriront ici, au cœur de la galerie, lorsque le livre aura été ajouté.');
     }
   } else if (button.hasAttribute('data-video')) {
-    title.textContent = 'Un message pour toi';
+    title.textContent = button.dataset.title || 'Un message pour toi';
     const source = button.dataset.video;
     if (source) {
       // The source is attached only after a deliberate click. No preloading in the gallery.

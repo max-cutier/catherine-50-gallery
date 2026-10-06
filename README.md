@@ -1,6 +1,25 @@
 # Catherine — 50 ans
 
-Premier prototype d’une galerie familiale statique. Le contenu visible est en français. Les emplacements abstraits sont explicitement marqués « à venir » : aucune photographie, histoire ou vidéo personnelle n’a été inventée.
+Galerie familiale statique en cours de création. L’accueil et la salle I contiennent désormais les photographies, les trois vidéos et le poème fournis par la famille. Les salles suivantes conservent leurs emplacements « à venir ». Le contenu visible est en français.
+
+## Où ajouter mes fichiers ?
+
+Les dossiers `assets` se trouvent à côté de `index.html` dans le projet :
+
+| Contenu | Dossier | Exemple actuel |
+| --- | --- | --- |
+| Photographies optimisées | `assets/photos/` | `famille-coucher-soleil.webp` |
+| Images d’aperçu des vidéos | `assets/posters/` | `message-max.webp` |
+| Vidéos optimisées | `assets/videos/` | `message-max.mp4` |
+| Livre PDF | `assets/books/` | à ajouter |
+
+Sur votre ordinateur : copier les fichiers destinés au site dans ces dossiers, puis remplacer leur chemin dans `index.html` (exemples ci-dessous). Ajouter un fichier ne l’affiche pas automatiquement : il faut aussi le relier à une photographie ou un bouton vidéo de la page. Utiliser des noms simples, sans espaces ni accents, et conserver leur orthographe exacte.
+
+Sur GitHub : ouvrir le dossier voulu sur la branche de travail, choisir **Add file → Upload files**, sélectionner les copies optimisées puis enregistrer les fichiers. Modifier ensuite `index.html` sur la même branche pour utiliser leurs chemins relatifs. Une demande de fusion permet de revoir le résultat avant de l’intégrer à `main`. Le dossier local et le dépôt GitHub sont des copies distinctes ; un ajout local doit être envoyé au dépôt pour apparaître dans une version hébergée.
+
+Vous pouvez aussi continuer à joindre les originaux dans ce chat avec les indications de salle et d’ordre ; je préparerai leurs copies et les intégrerai au projet existant. Conserver les originaux dans votre dossier `50ans Maman`, séparément du dépôt.
+
+La révision de l’accueil utilise `Family Photo.jpeg`. La salle I présente le poème exact de son Doudou avec `Mom and Dad Photo.JPG` à droite, puis les vidéos de danse, de Max et de Titou, le collage des six photographies restantes et `Family Photo 2.jpeg` en conclusion. Les WebP respectent l’orientation et le cadrage complet ; trois tailles permettent au navigateur de choisir une copie adaptée. Les MP4 H.264/AAC et leurs affiches sont préparés à partir des originaux sans les modifier. La compression et le redimensionnement sont techniques ; aucune retouche esthétique, aucun montage ni coupe n’a été appliqué.
 
 ## Ouvrir et modifier
 

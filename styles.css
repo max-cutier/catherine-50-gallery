@@ -167,3 +167,53 @@ body.viewer-open { overflow: hidden; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .js-motion .wall:not(.is-visible) h2, .js-motion .wall:not(.is-visible) .room-number, .js-motion .wall:not(.is-visible) .wall-line { opacity: 1; transform: none; }
 }
+
+/* Home and Room I: real media preserve their full composition. */
+h1 { max-width: 95%; }
+h1 > span { display: block; }
+h1 .family-name { font-size: .49em; letter-spacing: -.035em; margin-top: 12px; }
+.photo-image { display: block; width: 100%; padding: 0; background: transparent; }
+.photo-image img, .family-hero img { display: block; width: 100%; height: auto; }
+.poem-dedication { grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); align-items: center; gap: 70px; margin-bottom: calc(var(--breath) * 1.3); min-height: 75vh; }
+.poem-final { max-width: none; margin: 0; text-align: left; }
+.poem-final .eyebrow { display: block; margin-bottom: 40px; }
+.poem-lines { font-family: var(--serif); font-size: clamp(18px, 1.5vw, 22px); line-height: 2; white-space: pre-line; }
+.poem-final .fine-rule { margin: 42px 0 0; }
+.poem-portrait { margin-top: 35px; }
+.room-one-video { width: min(100%, 840px); margin: 0 auto var(--breath); }
+.room-one-video:not(.dance-memory) { max-width: 660px; }
+.video-card { display: block; position: relative; padding: 0; width: 100%; background: #30262b; box-shadow: 0 7px 24px #784d5410; }
+.video-card img { display: block; width: 100%; max-height: 65vh; object-fit: contain; }
+.video-card .play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--paper); border-color: #fff9f3b0; background: #51394588; width: 64px; height: 64px; transition: background .2s; }
+.video-card:hover .play { background: #513945c9; }
+.room-one-video figcaption { padding-top: 24px; font-size: 18px; }
+.family-collage { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; gap: 36px; margin-top: calc(var(--breath) * 1.3); }
+.family-collage .collage-wide { transform: rotate(-2deg); }
+.family-collage > :nth-child(4) { margin-top: 30px; }
+.family-collage > :nth-child(6) { margin-top: 45px; }
+.family-closing { width: min(100%, 1020px); margin: calc(var(--breath) * 1.4) auto 0; }
+@media (max-width: 1000px) {
+  .poem-dedication { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 35px; }
+}
+@media (max-width: 700px) {
+  .poem-dedication { grid-template-columns: 1fr; gap: 60px; max-width: 520px; }
+  .poem-portrait { max-width: 360px; margin: 0 auto; }
+  .family-collage { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 520px; }
+  .family-collage .paper { padding: 7px; }
+  .family-collage > :nth-child(4), .family-collage > :nth-child(6) { margin: 0; }
+}
+@media (max-width: 580px) {
+  h1 { font-size: clamp(59px, 16vw, 88px); }
+  h1 .family-name { font-size: .52em; }
+  .poem-final { margin: 0; }
+  .poem-lines { font-size: 18px; line-height: 1.95; }
+  .poem-final .eyebrow { margin-bottom: 30px; }
+  .family-collage { gap: 18px; }
+}
+@media (max-height: 650px) {
+  .opening-inner { height: auto; min-height: 100svh; padding-top: 80px; padding-bottom: 105px; }
+  .opening h1 { font-size: clamp(55px, 9vw, 100px); }
+  .opening .flower { height: 50px; margin-bottom: 5px; }
+  .opening .dedication { top: 25px; }
+  .opening .scroll-invitation { bottom: 20px; }
+}
