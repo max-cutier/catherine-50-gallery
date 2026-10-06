@@ -1,6 +1,6 @@
 # Catherine — 50 ans
 
-Galerie familiale statique en cours de création. L’accueil et les salles I, II et III contiennent les médias et textes fournis par la famille. La salle IV conserve leurs emplacements « à venir ». Le contenu visible est en français.
+Galerie familiale statique en cours de création. L’accueil et les salles I, II et III contiennent les médias et textes fournis par la famille. La salle IV commence par un premier groupe de collage. Le contenu visible est en français.
 
 ## Voir le site
 
@@ -25,7 +25,7 @@ Sur GitHub : ouvrir le dossier voulu sur la branche de travail, choisir **Add fi
 
 Vous pouvez aussi continuer à joindre les originaux dans ce chat avec les indications de salle et d’ordre ; je préparerai leurs copies et les intégrerai au projet existant. Conserver les originaux dans votre dossier `50ans Maman`, séparément du dépôt.
 
-La révision de l’accueil utilise `Family Photo.jpeg`. La salle I présente le poème exact de son Doudou avec `Mom and Dad Photo.JPG` à droite, puis les vidéos de danse, de Max et de Titou, le collage des six photographies restantes et `Family Photo 2.jpeg` en conclusion. La salle II présente Margny et Filipaz en vidéo à gauche, leur photographie à droite, puis le livre à gauche et AnneK en vidéo à droite ; le texte exact de Maryvonne est suivi de la vidéo de balade à vélo qui clôt la salle. La salle III s’ouvre sur Bourron sans légende visible, puis présente séparément le texte de Belle Maman et Beau Papa transcrit du PDF et vérifié visuellement. Les parents Mahou précèdent leurs enfants, suivis de six autres vidéos par groupes espacés, dont une paire partageant le sous-titre « Tonton Alain et Marie Blanche » et de la photographie de la famille Cutier. Les photographies n’ont ni légende ni sous-texte visible ; leurs descriptions accessibles restent disponibles pour les lecteurs d’écran. Le texte de la salle III conserve son contenu hormis l’attribution de l’initiative à Maxime, retirée à la demande de la famille. Les WebP respectent l’orientation et le cadrage complet ; trois tailles permettent au navigateur de choisir une copie adaptée. Les MP4 H.264/AAC et leurs affiches sont préparés à partir des originaux sans les modifier. La compression et le redimensionnement sont techniques ; aucune retouche esthétique, aucun montage ni coupe n’a été appliqué.
+La révision de l’accueil utilise `Family Photo.jpeg`. La salle I présente le poème exact de son Doudou avec `Mom and Dad Photo.JPG` à droite, puis les vidéos de danse, de Max et de Titou, le collage des six photographies restantes et `Family Photo 2.jpeg` en conclusion. La salle II présente Margny et les Filipaz en vidéo à gauche, leur photographie à droite, puis le livre à gauche et AnneK en vidéo à droite ; le texte exact de Maryvonne est suivi de la vidéo de balade à vélo qui clôt la salle. La salle III s’ouvre sur Bourron sans légende visible, puis présente séparément le texte de Belle Maman et Beau Papa transcrit du PDF et vérifié visuellement. Les vidéos des parents Mahou et de leurs enfants partagent le sous-titre « Les Mahou », les parents avant les enfants, suivis de six autres vidéos par groupes espacés, dont une paire partageant le sous-titre « Tonton Alain et Marie Blanche » et de la photographie de la famille Cutier. Les photographies n’ont ni légende ni sous-texte visible ; leurs descriptions accessibles restent disponibles pour les lecteurs d’écran. Le texte de la salle III conserve son contenu hormis l’attribution de l’initiative à Maxime, retirée à la demande de la famille. Les WebP respectent l’orientation et le cadrage complet ; trois tailles permettent au navigateur de choisir une copie adaptée. Les MP4 H.264/AAC et leurs affiches sont préparés à partir des originaux sans les modifier. La compression et le redimensionnement sont techniques ; aucune retouche esthétique, aucun montage ni coupe n’a été appliqué.
 
 ## Ouvrir et modifier
 
@@ -89,3 +89,9 @@ Les directives `noindex, noarchive, nofollow` sont déjà présentes. Elles dema
 ## Cadre de la première version
 
 Le brief fourni reste la référence. Cette version montre l’ouverture, la grande photographie de famille, la phrase de sincérité, les quatre salles dans leur ordre et leurs titres exacts, le livre intégré et la conclusion. Les salles I à III contiennent les médias reçus ; la salle IV conserve un petit échantillon extensible. Le projet ne contient pas les médias source ni les 50 photographies finales. Les futures révisions doivent se faire dans ces mêmes fichiers.
+
+## Collage de la salle IV
+
+La salle IV affiche uniquement l’introduction « Des messages et de l’amour, de la France à New York, jusqu’à Bangkok » puis ses médias. Le titre de la salle reste dans le passage précédent. Le premier groupe réunit les trois vidéos d’Amélie, Audrey et Beth, les trois photographies d’Amélie et la photographie de Beth. Aucun sous-titre ni texte d’attente n’accompagne ces médias, y compris dans la visionneuse. Les boutons gardent leurs libellés accessibles ; « Fermer » reste un contrôle du lecteur.
+
+Ajouter les futurs sous-groupes en répétant `friends-collage`, sans texte visible sauf demande explicite. Conserver les images à leur ratio naturel et les vidéos avec affiche et chargement à la demande. Les petits originaux ne sont pas agrandis artificiellement dans les fichiers optimisés.
