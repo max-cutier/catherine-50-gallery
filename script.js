@@ -149,6 +149,8 @@ document.addEventListener('click', event => {
       emptyView('Photographie à venir', 'La photographie pourra être contemplée ici en grand format.');
     }
   }
+  // Photos have no visible supporting text; keep the dialog title accessible.
+  title.classList.toggle('sr-only', button.hasAttribute('data-photo'));
   viewer.showModal();
   document.body.classList.add('viewer-open');
 });
