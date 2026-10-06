@@ -1,6 +1,6 @@
 # Catherine — 50 ans
 
-Galerie familiale statique en cours de création. L’accueil et les salles I et II contiennent les médias et textes fournis par la famille. Les salles III et IV conservent leurs emplacements « à venir ». Le contenu visible est en français.
+Galerie familiale statique en cours de création. L’accueil et les salles I, II et III contiennent les médias et textes fournis par la famille. La salle IV conserve leurs emplacements « à venir ». Le contenu visible est en français.
 
 ## Voir le site
 
@@ -17,7 +17,7 @@ Les dossiers `assets` se trouvent à côté de `index.html` dans le projet :
 | Photographies optimisées | `assets/photos/` | `famille-coucher-soleil.webp` |
 | Images d’aperçu des vidéos | `assets/posters/` | `message-max.webp` |
 | Vidéos optimisées | `assets/videos/` | `message-max.mp4` |
-| Livre PDF | `assets/books/` | à ajouter |
+| Livre PDF | `assets/books/` | `livre-50-ans-miteux.pdf` |
 
 Sur votre ordinateur : copier les fichiers destinés au site dans ces dossiers, puis remplacer leur chemin dans `index.html` (exemples ci-dessous). Ajouter un fichier ne l’affiche pas automatiquement : il faut aussi le relier à une photographie ou un bouton vidéo de la page. Utiliser des noms simples, sans espaces ni accents, et conserver leur orthographe exacte.
 
@@ -25,7 +25,7 @@ Sur GitHub : ouvrir le dossier voulu sur la branche de travail, choisir **Add fi
 
 Vous pouvez aussi continuer à joindre les originaux dans ce chat avec les indications de salle et d’ordre ; je préparerai leurs copies et les intégrerai au projet existant. Conserver les originaux dans votre dossier `50ans Maman`, séparément du dépôt.
 
-La révision de l’accueil utilise `Family Photo.jpeg`. La salle I présente le poème exact de son Doudou avec `Mom and Dad Photo.JPG` à droite, puis les vidéos de danse, de Max et de Titou, le collage des six photographies restantes et `Family Photo 2.jpeg` en conclusion. La salle II présente Margny et Filipaz en vidéo à gauche, leur photographie à droite, puis le livre à gauche et AnneK en vidéo à droite ; elle se termine par le texte exact de Maryvonne. Les WebP respectent l’orientation et le cadrage complet ; trois tailles permettent au navigateur de choisir une copie adaptée. Les MP4 H.264/AAC et leurs affiches sont préparés à partir des originaux sans les modifier. La compression et le redimensionnement sont techniques ; aucune retouche esthétique, aucun montage ni coupe n’a été appliqué.
+La révision de l’accueil utilise `Family Photo.jpeg`. La salle I présente le poème exact de son Doudou avec `Mom and Dad Photo.JPG` à droite, puis les vidéos de danse, de Max et de Titou, le collage des six photographies restantes et `Family Photo 2.jpeg` en conclusion. La salle II présente Margny et Filipaz en vidéo à gauche, leur photographie à droite, puis le livre à gauche et AnneK en vidéo à droite ; elle se termine par le texte exact de Maryvonne. La salle III s’ouvre sur Bourron sans légende visible, puis présente séparément le texte de Belle Maman et Beau Papa transcrit du PDF et vérifié visuellement. Les parents Mahou précèdent leurs enfants, suivis de six autres vidéos par paires espacées et de la photographie de la famille Cutier. Les WebP respectent l’orientation et le cadrage complet ; trois tailles permettent au navigateur de choisir une copie adaptée. Les MP4 H.264/AAC et leurs affiches sont préparés à partir des originaux sans les modifier. La compression et le redimensionnement sont techniques ; aucune retouche esthétique, aucun montage ni coupe n’a été appliqué.
 
 ## Ouvrir et modifier
 
@@ -34,7 +34,7 @@ Ouvrir `index.html` directement dans un navigateur, ou servir ce dossier avec un
 - `index.html` : contenu et compositions des salles, dans l’ordre de lecture.
 - `styles.css` : palette, typographie, espacements et compositions réutilisables.
 - `script.js` : apparition discrète des titres et visionneuse commune.
-- `assets/photos/`, `posters/`, `videos/`, `books/` : copies optimisées ; les médias de l’accueil et de la salle I sont déjà inclus.
+- `assets/photos/`, `posters/`, `videos/`, `books/` : copies optimisées ; les médias de l’accueil et des salles I à III sont déjà inclus.
 - `assets/paper.svg` : texture abstraite légère, sans photographie personnelle.
 
 La maquette utilise des polices système (Georgia et Segoe UI), sans requête vers un fournisseur de polices. Elle fonctionne aussi à partir d’un sous-dossier, grâce aux chemins relatifs.
@@ -88,4 +88,4 @@ Les directives `noindex, noarchive, nofollow` sont déjà présentes. Elles dema
 
 ## Cadre de la première version
 
-Le brief fourni reste la référence. Cette version montre l’ouverture, la grande photographie de famille, la phrase de sincérité, les quatre salles dans leur ordre et leurs titres exacts, le livre intégré et la conclusion. Les salles I et II montrent les volumes prévus de base, la salle III huit emplacements vidéo et la salle IV un petit échantillon extensible. Le projet ne contient pas les médias source ni les 50 photographies finales. Les futures révisions doivent se faire dans ces mêmes fichiers.
+Le brief fourni reste la référence. Cette version montre l’ouverture, la grande photographie de famille, la phrase de sincérité, les quatre salles dans leur ordre et leurs titres exacts, le livre intégré et la conclusion. Les salles I à III contiennent les médias reçus ; la salle IV conserve un petit échantillon extensible. Le projet ne contient pas les médias source ni les 50 photographies finales. Les futures révisions doivent se faire dans ces mêmes fichiers.
