@@ -28,7 +28,7 @@ Ouvrir `index.html` directement dans un navigateur, ou servir ce dossier avec un
 - `index.html` : contenu et compositions des salles, dans l’ordre de lecture.
 - `styles.css` : palette, typographie, espacements et compositions réutilisables.
 - `script.js` : apparition discrète des titres et visionneuse commune.
-- `assets/photos/`, `posters/`, `videos/`, `books/` : copies optimisées à ajouter ultérieurement.
+- `assets/photos/`, `posters/`, `videos/`, `books/` : copies optimisées ; les médias de l’accueil et de la salle I sont déjà inclus.
 - `assets/paper.svg` : texture abstraite légère, sans photographie personnelle.
 
 La maquette utilise des polices système (Georgia et Segoe UI), sans requête vers un fournisseur de polices. Elle fonctionne aussi à partir d’un sous-dossier, grâce aux chemins relatifs.
@@ -70,7 +70,7 @@ Remplacer les blocs `text-placeholder` par les textes fournis. Le poème doit co
 
 ## Interactions et accessibilité
 
-Le défilement reste natif. Chaque passage est un panneau rose plein écran, maintenu brièvement par `position: sticky`, qui recouvre la fin de la salle précédente puis révèle la suivante. Seuls les titres utilisent une animation d’opacité et de déplacement légère. La préférence de réduction des mouvements est respectée. Sans JavaScript, les salles et les titres restent visibles ; les visionneuses nécessitent JavaScript.
+Le défilement reste natif. Chaque passage est un panneau rose plein écran, maintenu brièvement par `position: sticky`, qui remplace visuellement la salle précédente puis révèle la suivante. Les sections restent dans le flux normal, avec un espace après chaque contenu : le panneau ne masque ni la phrase de sincérité, ni un texte, ni une photographie. Seuls les titres utilisent une animation d’opacité et de déplacement légère. La préférence de réduction des mouvements est respectée. Sans JavaScript, les salles et les titres restent visibles ; les visionneuses nécessitent JavaScript.
 
 Le dialogue natif gère le focus et la touche Échap. La fermeture interrompt le média et restitue le focus au bouton d’origine. Aucun lecteur, PDF ou grand média n’est chargé en arrière-plan.
 
