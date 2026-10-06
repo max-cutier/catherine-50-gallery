@@ -150,7 +150,7 @@ document.addEventListener('click', event => {
     }
   }
   // Photos have no visible supporting text; keep the dialog title accessible.
-  title.classList.toggle('sr-only', button.hasAttribute('data-photo'));
+  title.classList.toggle('sr-only', button.hasAttribute('data-photo') || button.hasAttribute('data-no-title'));
   viewer.showModal();
   document.body.classList.add('viewer-open');
 });
