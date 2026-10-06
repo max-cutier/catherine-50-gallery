@@ -103,3 +103,5 @@ Les groupes suivants ajoutent Dooley et ses deux photos, Jennica, les cinq photo
 La quatrième salle continue avec une vidéo Amy, huit photos Amy et huit photos Haberkorn, dans un même collage sans titres ni légendes. Les HEIC Amy sont convertis en WebP orientés et proposés en trois tailles.
 
 Le dernier groupe de la quatrième salle comprend Paumier, les seize photos Olivia, les trois vidéos Hanson avec leurs huit photos et Jacinthe. Il suit les souvenirs Amy et Haberkorn, sans légende ni texte ajouté. Les vidéos se chargent uniquement à la demande et les photographies disposent de copies WebP responsives.
+
+La salle I comprend désormais douze photographies dans son collage familial. La conclusion présente `Final Photo.jpeg` avec les trois phrases exactes du brief, à côté sur ordinateur et sous la photographie sur téléphone.

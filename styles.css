@@ -105,7 +105,7 @@ figcaption { padding: 15px 8px 5px; font-family: var(--serif); font-size: 14px; 
 .wide-memory .photo-placeholder { aspect-ratio: 2/1; }
 .final-passage { min-height: 110svh; }
 .ending { min-height: 120vh; position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: center; padding: 140px max(40px,calc((100vw - 1120px)/2)); }
-.ending-photo { aspect-ratio: 3/4; opacity: .55; }
+.ending-photo { width: 100%; margin: 0; }
 .ending-words p { font-family: var(--serif); font-size: clamp(27px,3vw,42px); color: var(--gold); line-height: 1.4; letter-spacing: -.02em; margin: 0 0 65px; }
 .ending-words p:last-child { font-size: clamp(23px,2.3vw,32px); font-style: italic; margin: 0; }
 dialog { width: min(1100px,92vw); max-height: 90svh; padding: 25px; border: 0; background: var(--paper); color: var(--ink); box-shadow: 0 20px 80px #42303b33; }
