@@ -275,24 +275,18 @@ h1 .family-name { font-size: .49em; letter-spacing: -.035em; margin-top: 12px; }
   .video-pair { grid-template-columns: minmax(0, 1fr); gap: 45px; }
 }
 
-/* Room IV grows by adding caption-free collage groups. Every media keeps its full frame. */
-.collage-introduction { max-width: 980px; margin: 0 auto 100px; text-align: center; font-family: var(--serif); color: var(--gold); font-size: clamp(25px, 2.7vw, 38px); line-height: 1.5; }
-.friends-collage { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 45px 36px; align-items: center; max-width: 1220px; margin: 0 auto var(--breath); }
-.collage-item { min-width: 0; margin: 0; }
-.friend-lead { grid-column: 1 / 9; grid-row: 1; }
-.friend-amelie-video { grid-column: 9 / 13; grid-row: 1; }
-.friend-photo-two { grid-column: 1 / 5; grid-row: 2; }
-.friend-audrey-video { grid-column: 5 / 9; grid-row: 2; }
-.friend-photo-three { grid-column: 1 / 6; grid-row: 3; }
-.friend-beth-video { grid-column: 6 / 9; grid-row: 3; }
-.friend-beth-photo { grid-column: 9 / 13; grid-row: 2 / 4; width: 90%; justify-self: end; }
-.friends-collage .paper { padding: 9px; }
-@media (max-width: 850px) {
-  .friends-collage { gap: 30px 22px; }
-}
+/* One continuous collage; source comments retain the informal groups.
+   Columns pack varied full-frame media without fixed row-height gaps. */
+.collage-introduction { max-width: 980px; margin: 0 auto 65px; text-align: center; font-family: var(--serif); color: var(--gold); font-size: clamp(25px, 2.7vw, 38px); line-height: 1.5; }
+.friends-collage { columns: 4; column-gap: 18px; max-width: 1220px; margin: 0 auto; }
+.friends-collage .collage-item { display: inline-block; vertical-align: top; width: 100%; min-width: 0; margin: 0 0 18px; break-inside: avoid; }
+.friends-collage .paper { padding: 6px; }
+.friends-collage .video-card img { max-height: none; }
+@media (max-width: 1100px) { .friends-collage { columns: 3; } }
 @media (max-width: 700px) {
-  .collage-introduction { margin-bottom: 70px; }
-  .friends-collage { grid-template-columns: minmax(0, 1fr); gap: 45px; max-width: 520px; }
-  .friends-collage > * { grid-column: 1; grid-row: auto; width: 100%; }
-  .friend-beth-photo { max-width: 350px; justify-self: center; }
+  .collage-introduction { margin-bottom: 45px; }
+  .friends-collage { columns: 2; column-gap: 14px; }
+  .friends-collage .collage-item { margin-bottom: 14px; }
+  .friends-collage .play { width: 48px; height: 48px; }
 }
+@media (max-width: 440px) { .friends-collage { columns: 1; max-width: 360px; } }
