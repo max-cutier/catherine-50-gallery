@@ -23,17 +23,17 @@ button { border: 0; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .skip-link { position: fixed; top: 12px; left: 12px; padding: 12px 20px; background: var(--paper); z-index: 20; transform: translateY(-160%); }
 .skip-link:focus { transform: translateY(0); }
-.opening { height: 115vh; }
-.opening-inner { position: sticky; top: 0; min-height: 100svh; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 24px 90px; text-align: center; background: radial-gradient(ellipse at 50% 42%, #fff5f2 0, var(--blush) 67%); }
+.opening { min-height: 100svh; }
+.opening-inner { min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 65px 24px; text-align: center; background: radial-gradient(ellipse at 50% 42%, #fff5f2 0, var(--blush) 67%); }
 .dedication, .eyebrow, .room-number { text-transform: uppercase; letter-spacing: .22em; font-size: 11px; font-weight: 500; }
-.dedication { position: absolute; top: 9vh; }
+.dedication { margin-bottom: clamp(32px, 6vh, 65px); }
 .flower { width: 80px; height: 96px; color: var(--gold); opacity: .65; margin-bottom: 12px; }
 h1 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(82px, 11vw, 156px); line-height: 1.1; letter-spacing: -.06em; color: var(--gold); margin: 0 0 24px; }
 .opening-subtitle { font-family: var(--serif); font-size: clamp(20px, 2vw, 28px); line-height: 1.55; }
-.scroll-invitation { position: absolute; bottom: 7vh; text-decoration: none; font-family: var(--serif); font-style: italic; font-size: 15px; }
+.scroll-invitation { margin-top: clamp(38px, 7vh, 75px); text-decoration: none; font-family: var(--serif); font-style: italic; font-size: 15px; }
 .scroll-invitation span { display: block; font-family: var(--body); font-style: normal; font-size: 22px; margin-top: 12px; }
 .scene { position: relative; z-index: 1; background: var(--blush); }
-.family { padding: 6vw max(24px, calc((100vw - 1240px)/2)) var(--breath); margin-top: -15vh; }
+.family { padding: 6vw max(24px, calc((100vw - 1240px)/2)) var(--breath); }
 .paper { background: var(--paper); padding: 12px; box-shadow: 0 7px 24px #784d5410; }
 .photo-placeholder { display: flex; width: 100%; align-items: center; justify-content: center; min-height: 0; position: relative; overflow: hidden; text-align: center; }
 .photo-placeholder::after { content: ''; position: absolute; inset: 0; opacity: .16; background: url('assets/paper.svg'); pointer-events: none; }
@@ -45,15 +45,15 @@ h1 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size:
 small { display: block; font-size: 11px; font-family: var(--body); font-weight: 400; letter-spacing: .05em; margin-top: 8px; }
 figcaption { padding: 15px 8px 5px; font-family: var(--serif); font-size: 14px; font-style: italic; text-align: center; }
 .sincerity { max-width: 650px; margin: 105px auto 0; text-align: center; font-family: var(--serif); font-style: italic; font-size: clamp(19px,2vw,24px); line-height: 1.9; }
-/* A full-height panel rises over the room's tail, holds while scrolling,
-   then leaves to reveal the next room. No scroll hijacking or media downloads. */
-.passage { height: 145vh; position: relative; z-index: 2; margin-top: -12vh; background: var(--wall); box-shadow: 0 -14px 32px #9b667b0b; }
-.wall { position: sticky; top: 0; height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 34px; padding: 64px 28px; text-align: center; background: var(--wall); }
+/* The panel enters in normal flow, holds while scrolling, then reveals the
+   next room. Keeping sections in flow prevents it from covering any text. */
+.passage { min-height: 145svh; position: relative; z-index: 2; background: var(--wall); box-shadow: 0 -14px 32px #9b667b0b; }
+.wall { position: sticky; top: 0; min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 34px; padding: 64px 28px; text-align: center; background: var(--wall); }
 .wall h2 { color: var(--gold); font-family: var(--serif); font-size: clamp(34px,4.1vw,60px); font-weight: 600; line-height: 1.22; max-width: 890px; margin: 0; text-wrap: balance; letter-spacing: -.025em; }
 .wall-line, .fine-rule { display: block; width: 46px; height: 1px; background: var(--gold); opacity: .55; }
 .wall h2, .wall .room-number, .wall-line { transition: opacity .8s ease, transform .8s ease; }
 .js-motion .wall:not(.is-visible) h2, .js-motion .wall:not(.is-visible) .room-number, .js-motion .wall:not(.is-visible) .wall-line { opacity: 0; transform: translateY(15px); }
-.room { padding: var(--breath) 40px calc(var(--breath) + 12vh); }
+.room { padding: var(--breath) 40px; }
 .roots { background: #f5e5e7; }
 .soul { background: #f9ecee; }
 .composition { width: min(100%,var(--page-width)); margin: 0 auto var(--breath); display: grid; gap: var(--gap); align-items: center; }
@@ -103,7 +103,7 @@ figcaption { padding: 15px 8px 5px; font-family: var(--serif); font-size: 14px; 
 .reversed { grid-template-columns: 1fr 1.15fr 1fr; }
 .wide-memory { max-width: 1000px; margin: 0 auto var(--breath); }
 .wide-memory .photo-placeholder { aspect-ratio: 2/1; }
-.final-passage { height: 110vh; }
+.final-passage { min-height: 110svh; }
 .ending { min-height: 120vh; position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: center; padding: 140px max(40px,calc((100vw - 1120px)/2)); }
 .ending-photo { aspect-ratio: 3/4; opacity: .55; }
 .ending-words p { font-family: var(--serif); font-size: clamp(27px,3vw,42px); color: var(--gold); line-height: 1.4; letter-spacing: -.02em; margin: 0 0 65px; }
@@ -112,7 +112,7 @@ dialog { width: min(1100px,92vw); max-height: 90svh; padding: 25px; border: 0; b
 dialog::backdrop { background: #51394599; }
 .viewer-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 24px; }
 .viewer-toolbar h2 { margin: 0; font-family: var(--serif); font-size: 23px; font-weight: 400; }
-.close-viewer { padding: 8px 14px; background: transparent; font-size: 13px; }
+.close-viewer { padding: 8px 14px; background: transparent; font-size: 13px; white-space: nowrap; flex-shrink: 0; }
 .close-viewer span { font-size: 23px; margin-left: 10px; }
 #viewer-content .empty-view { min-height: 48vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 25px; background: var(--blush); }
 .empty-view p { max-width: 460px; }
@@ -122,6 +122,29 @@ dialog::backdrop { background: #51394599; }
 #viewer-content iframe { display: block; width: 100%; height: 65vh; border: 0; }
 .pdf-link { display: inline-block; padding: 12px 0; }
 body.viewer-open { overflow: hidden; }
+.roots-memories, .roots-book-and-video { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: 70px; }
+.roots-memories figcaption, .roots-book-and-video figcaption { font-size: 18px; padding-top: 24px; }
+.roots-book-and-video { align-items: center; margin-top: calc(var(--breath) * 1.5); margin-bottom: calc(var(--breath) * 1.5); }
+.book-real { padding: 0; margin: 0; }
+.book-with-cover { width: min(100%, 365px); min-height: 0; padding: 0; display: block; }
+.book-with-cover img { display: block; width: 100%; height: auto; }
+.family-letter { max-width: 740px; margin: 0 auto; padding: 35px 0; }
+.family-letter p { font-family: var(--serif); font-size: clamp(19px, 1.7vw, 23px); line-height: 2; white-space: pre-line; }
+.book-reader { display: flex; flex-direction: column; gap: 18px; }
+.book-controls { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px 24px; }
+.book-controls button { background: var(--blush); padding: 9px 16px; font-size: 14px; }
+.book-controls button:disabled { opacity: .4; cursor: default; }
+.book-position { font-size: 13px; min-width: 85px; text-align: center; }
+.book-sheet { max-height: 66svh; overflow: auto; background: var(--blush); }
+#viewer-content .book-sheet img { width: auto; max-width: 100%; max-height: 64svh; height: auto; }
+#viewer-content .book-sheet.is-expanded img { width: max(100%, 1000px); max-width: none; max-height: none; }
+.book-save { font-size: 13px; text-align: center; }
+@media (max-width: 700px) {
+  .roots-memories, .roots-book-and-video { grid-template-columns: minmax(0, 1fr); max-width: 520px; gap: 65px; }
+  .family-letter { padding: 0; }
+  .book-controls { gap: 10px; }
+  .book-controls button { padding: 9px 11px; }
+}
 @media (min-width: 1600px) { .room { padding-top: 160px; } }
 @media (max-width: 800px) {
   :root { --gap: 26px; --breath: 85px; }
@@ -166,4 +189,54 @@ body.viewer-open { overflow: hidden; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .js-motion .wall:not(.is-visible) h2, .js-motion .wall:not(.is-visible) .room-number, .js-motion .wall:not(.is-visible) .wall-line { opacity: 1; transform: none; }
+}
+
+/* Home and Room I: real media preserve their full composition. */
+h1 { max-width: 95%; }
+h1 > span { display: block; }
+h1 .family-name { font-size: .49em; letter-spacing: -.035em; margin-top: 12px; }
+.photo-image { display: block; width: 100%; padding: 0; background: transparent; }
+.photo-image img, .family-hero img { display: block; width: 100%; height: auto; }
+.poem-dedication { grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); align-items: center; gap: 70px; margin-bottom: calc(var(--breath) * 1.3); min-height: 75vh; }
+.poem-final { max-width: none; margin: 0; text-align: left; }
+.poem-final .eyebrow { display: block; margin-bottom: 40px; }
+.poem-lines { font-family: var(--serif); font-size: clamp(18px, 1.5vw, 22px); line-height: 2; white-space: pre-line; }
+.poem-final .fine-rule { margin: 42px 0 0; }
+.poem-portrait { margin-top: 35px; }
+.room-one-video { width: min(100%, 840px); margin: 0 auto var(--breath); }
+.room-one-video:not(.dance-memory) { max-width: 660px; }
+.video-card { display: block; position: relative; padding: 0; width: 100%; background: #30262b; box-shadow: 0 7px 24px #784d5410; }
+.video-card img { display: block; width: 100%; max-height: 65vh; object-fit: contain; }
+.video-card .play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--paper); border-color: #fff9f3b0; background: #51394588; width: 64px; height: 64px; transition: background .2s; }
+.video-card:hover .play { background: #513945c9; }
+.room-one-video figcaption { padding-top: 24px; font-size: 18px; }
+.family-collage { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; gap: 36px; margin-top: calc(var(--breath) * 1.3); }
+.family-collage .collage-wide { transform: rotate(-2deg); }
+.family-collage > :nth-child(4) { margin-top: 30px; }
+.family-collage > :nth-child(6) { margin-top: 45px; }
+.family-closing { width: min(100%, 1020px); margin: calc(var(--breath) * 1.4) auto 0; }
+@media (max-width: 1000px) {
+  .poem-dedication { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 35px; }
+}
+@media (max-width: 700px) {
+  .poem-dedication { grid-template-columns: 1fr; gap: 60px; max-width: 520px; }
+  .poem-portrait { max-width: 360px; margin: 0 auto; }
+  .family-collage { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 520px; }
+  .family-collage .paper { padding: 7px; }
+  .family-collage > :nth-child(4), .family-collage > :nth-child(6) { margin: 0; }
+}
+@media (max-width: 580px) {
+  h1 { font-size: clamp(59px, 16vw, 88px); }
+  h1 .family-name { font-size: .52em; }
+  .poem-final { margin: 0; }
+  .poem-lines { font-size: 18px; line-height: 1.95; }
+  .poem-final .eyebrow { margin-bottom: 30px; }
+  .family-collage { gap: 18px; }
+}
+@media (max-height: 650px) {
+  .opening-inner { height: auto; min-height: 100svh; padding-top: 80px; padding-bottom: 105px; }
+  .opening h1 { font-size: clamp(55px, 9vw, 100px); }
+  .opening .flower { height: 50px; margin-bottom: 5px; }
+  .opening .dedication { top: 25px; }
+  .opening .scroll-invitation { bottom: 20px; }
 }

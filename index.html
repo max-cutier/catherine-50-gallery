@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, noarchive, nofollow">
   <meta name="description" content="Une galerie de souvenirs pour les 50 ans de Catherine.">
   <meta name="theme-color" content="#f8e9eb">
-  <title>Catherine — 50 ans</title>
+  <title>Catherine Fontaine Cutier — 50 ans</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
@@ -17,7 +17,7 @@
       <div class="opening-inner">
         <span class="dedication">Une galerie pour tes 50 ans</span>
         <svg class="flower" viewBox="0 0 160 190" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.1"><path d="M78 178C92 135 61 96 82 55M84 127C114 116 134 92 126 76C103 79 85 99 84 127ZM81 149C49 146 29 125 32 109C57 108 78 128 81 149Z"/><path d="M82 62C49 79 32 47 54 33C35 15 68 2 79 23C87-5 116 10 103 30C134 27 133 58 106 57C112 83 84 91 82 62Z"/><path d="M81 56C67 62 56 48 66 40C58 29 75 24 81 35C85 20 101 31 94 41C110 44 99 60 89 54C88 66 77 66 81 56Z"/></g></svg>
-        <h1 id="catherine">Catherine Fontaine Cutier</h1>
+        <h1 id="catherine"><span>Catherine</span><span class="family-name">Fontaine Cutier</span></h1>
         <p class="opening-subtitle">50 ans de souvenirs,<br>de rencontres et d’amour</p>
         <a class="scroll-invitation" href="#famille">Fais défiler pour entrer…<span aria-hidden="true">↓</span></a>
       </div>
@@ -25,8 +25,7 @@
 
     <section class="family scene" id="famille" aria-label="Photographie de famille">
       <figure class="family-hero paper">
-        <!-- Replace this placeholder with an img: src, alt, width, height, decoding="async". -->
-        <div class="photo-placeholder sunset" role="img" aria-label="Emplacement de la grande photographie de famille au coucher du soleil"><span class="placeholder-note">Photographie de famille<br><small>Au coucher du soleil · à venir</small></span></div>
+        <button class="photo-image" data-photo data-full="assets/photos/famille-coucher-soleil.webp" aria-label="Agrandir la photographie de famille au coucher du soleil"><img src="assets/photos/famille-coucher-soleil.webp" srcset="assets/photos/famille-coucher-soleil-640.webp 640w, assets/photos/famille-coucher-soleil-1200.webp 1200w, assets/photos/famille-coucher-soleil.webp 2000w" sizes="(max-width: 1280px) 94vw, 1200px" alt="Catherine et sa famille au bord de la mer, au coucher du soleil" width="2000" height="1500" loading="eager" decoding="async"></button>
         <figcaption>Un premier souvenir, ensemble.</figcaption>
       </figure>
       <p class="sincerity">« Ici, rien n’a été retouché : seulement des mots sincères, des sourires vrais, et tout l’amour qu’on voulait t’offrir. »</p>
@@ -35,23 +34,96 @@
     <div class="passage"><header class="wall" id="salle-1"><span class="room-number">Salle I</span><h2>Nous avons tellement de chance</h2><span class="wall-line" aria-hidden="true"></span></header></div>
     <section class="room intimate" aria-labelledby="titre-1">
       <h2 class="sr-only" id="titre-1">Nous avons tellement de chance</h2>
-      <div class="poem text-placeholder"><span class="eyebrow">Un poème pour toi</span><div class="poem-space" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><p>Le poème prendra place ici.</p><span class="fine-rule" aria-hidden="true"></span></div>
-      <div class="composition pair">
-        <figure class="photo paper portrait offset"><button class="photo-placeholder rose" data-photo aria-label="Ouvrir la photographie 1 de la salle I"><span class="placeholder-note">Photographie 01<small>À venir</small></span></button><figcaption>Une place pour un souvenir.</figcaption></figure>
-        <figure class="photo paper landscape"><button class="photo-placeholder cream" data-photo aria-label="Ouvrir la photographie 2 de la salle I"><span class="placeholder-note">Photographie 02<small>À venir</small></span></button></figure>
+      <div class="composition poem-dedication" id="poeme">
+        <article class="poem poem-final" aria-label="Poème de son Doudou">
+          <span class="eyebrow">Un poème de ton Doudou</span>
+          <p class="poem-lines">P’tit Chou fête ses 50 printemps
+Dont la moitié avec son Doudou
+Quelle chance il a, qu’elle l’ait choisi
+Trois beaux enfants lui sourient
+Un copain lui dit : “Ta famille on dirait les Kennedy”
+Pas sûr de ça, car la vie nous sourit
+Comme le sourire de P’tit Chou qui brille tel un soleil de Provence
+“Quoi il a dit Aix-En-Provence!”
+Venus tout droit sortie d’une peinture de Botticelli
+Son énergie l’inonde, et à son humour il succombe
+Poète à ses heures, elle est la muse qui inspire sa vie
+Bon Anniversaire ma Chérie</p>
+          <span class="fine-rule" aria-hidden="true"></span>
+        </article>
+        <figure class="photo paper poem-portrait"><button class="photo-image" data-photo data-full="assets/photos/catherine-et-doudou.webp" aria-label="Agrandir : Catherine et son Doudou, souriant côte à côte"><img src="assets/photos/catherine-et-doudou.webp" srcset="assets/photos/catherine-et-doudou-640.webp 640w, assets/photos/catherine-et-doudou-1200.webp 1200w, assets/photos/catherine-et-doudou.webp 1599w" sizes="(max-width: 580px) 90vw, 40vw" alt="Catherine et son Doudou, souriant côte à côte" width="1599" height="1200" loading="lazy" decoding="async"></button></figure>
       </div>
-      <div class="composition voices duo"><div class="video-piece"><button class="video-placeholder" data-video="" aria-label="Ouvrir le message vidéo 1 de la salle I"><span class="play" aria-hidden="true">▷</span><span>Message vidéo 01<small>À venir</small></span></button></div><div class="video-piece lowered"><button class="video-placeholder light" data-video="" aria-label="Ouvrir le message vidéo 2 de la salle I"><span class="play" aria-hidden="true">▷</span><span>Message vidéo 02<small>À venir</small></span></button></div></div>
-      <div class="composition triptych"><figure class="photo paper"><button class="photo-placeholder cream" data-photo aria-label="Ouvrir la photographie 3 de la salle I"><span class="placeholder-note">Photographie 03<small>À venir</small></span></button></figure><figure class="photo paper portrait"><button class="photo-placeholder rose" data-photo aria-label="Ouvrir la photographie 4 de la salle I"><span class="placeholder-note">Photographie 04<small>À venir</small></span></button></figure><figure class="photo paper"><button class="photo-placeholder mauve" data-photo aria-label="Ouvrir la photographie 5 de la salle I"><span class="placeholder-note">Photographie 05<small>À venir</small></span></button></figure></div>
+      <figure class="video-piece room-one-video dance-memory">
+        <button class="video-card" data-video="assets/videos/danse-maman-papa.mp4" data-poster="assets/posters/danse-maman-papa.webp" data-title="Maman et Papa dansent" aria-label="Lire : Maman et Papa dansent">
+          <img src="assets/posters/danse-maman-papa.webp" alt="" loading="lazy" decoding="async">
+          <span class="play" aria-hidden="true">▷</span>
+        </button>
+        <figcaption>Maman et Papa dansent</figcaption>
+      </figure>
+      <figure class="video-piece room-one-video ">
+        <button class="video-card" data-video="assets/videos/message-max.mp4" data-poster="assets/posters/message-max.webp" data-title="Un message de Max" aria-label="Lire : Un message de Max">
+          <img src="assets/posters/message-max.webp" alt="" loading="lazy" decoding="async">
+          <span class="play" aria-hidden="true">▷</span>
+        </button>
+        <figcaption>Un message de Max</figcaption>
+      </figure>
+      <figure class="video-piece room-one-video ">
+        <button class="video-card" data-video="assets/videos/message-titou.mp4" data-poster="assets/posters/message-titou.webp" data-title="Un message de Titou" aria-label="Lire : Un message de Titou">
+          <img src="assets/posters/message-titou.webp" alt="" loading="lazy" decoding="async">
+          <span class="play" aria-hidden="true">▷</span>
+        </button>
+        <figcaption>Un message de Titou</figcaption>
+      </figure>
+      <div class="composition family-collage" aria-label="Six souvenirs en famille">
+        <figure class="photo paper collage-tall"><button class="photo-image" data-photo data-full="assets/photos/catherine-et-doudou-voyage.webp" aria-label="Agrandir : Catherine et son Doudou devant la mer"><img src="assets/photos/catherine-et-doudou-voyage.webp" srcset="assets/photos/catherine-et-doudou-voyage-640.webp 480w, assets/photos/catherine-et-doudou-voyage-1200.webp 901w, assets/photos/catherine-et-doudou-voyage.webp 1200w" sizes="(max-width: 580px) 90vw, 40vw" alt="Catherine et son Doudou devant la mer" width="1200" height="1599" loading="lazy" decoding="async"></button></figure>
+        <figure class="photo paper collage-wide"><button class="photo-image" data-photo data-full="assets/photos/catherine-et-lulu-anniversaire.webp" aria-label="Agrandir : Catherine et Lulu à table"><img src="assets/photos/catherine-et-lulu-anniversaire.webp" srcset="assets/photos/catherine-et-lulu-anniversaire-640.webp 640w, assets/photos/catherine-et-lulu-anniversaire.webp 1024w" sizes="(max-width: 580px) 90vw, 40vw" alt="Catherine et Lulu à table" width="1024" height="768" loading="lazy" decoding="async"></button></figure>
+        <figure class="photo paper collage-tall"><button class="photo-image" data-photo data-full="assets/photos/catherine-et-max.webp" aria-label="Agrandir : Catherine et Max, côte à côte"><img src="assets/photos/catherine-et-max.webp" srcset="assets/photos/catherine-et-max-640.webp 480w, assets/photos/catherine-et-max-1200.webp 900w, assets/photos/catherine-et-max.webp 1500w" sizes="(max-width: 580px) 90vw, 40vw" alt="Catherine et Max, côte à côte" width="1500" height="2000" loading="lazy" decoding="async"></button></figure>
+        <figure class="photo paper collage-tall"><button class="photo-image" data-photo data-full="assets/photos/catherine-et-lulu-bateau.webp" aria-label="Agrandir : Catherine et Lulu sur un bateau"><img src="assets/photos/catherine-et-lulu-bateau.webp" srcset="assets/photos/catherine-et-lulu-bateau-640.webp 480w, assets/photos/catherine-et-lulu-bateau-1200.webp 900w, assets/photos/catherine-et-lulu-bateau.webp 1500w" sizes="(max-width: 580px) 90vw, 40vw" alt="Catherine et Lulu sur un bateau" width="1500" height="2000" loading="lazy" decoding="async"></button></figure>
+        <figure class="photo paper collage-tall"><button class="photo-image" data-photo data-full="assets/photos/catherine-et-lulu-jardin.webp" aria-label="Agrandir : Catherine et Lulu dans un jardin"><img src="assets/photos/catherine-et-lulu-jardin.webp" srcset="assets/photos/catherine-et-lulu-jardin-640.webp 480w, assets/photos/catherine-et-lulu-jardin-1200.webp 900w, assets/photos/catherine-et-lulu-jardin.webp 1500w" sizes="(max-width: 580px) 90vw, 40vw" alt="Catherine et Lulu dans un jardin" width="1500" height="2000" loading="lazy" decoding="async"></button></figure>
+        <figure class="photo paper collage-tall"><button class="photo-image" data-photo data-full="assets/photos/catherine-et-titou.webp" aria-label="Agrandir : Catherine et Titou avec un bonnet blanc"><img src="assets/photos/catherine-et-titou.webp" srcset="assets/photos/catherine-et-titou-640.webp 480w, assets/photos/catherine-et-titou-1200.webp 900w, assets/photos/catherine-et-titou.webp 1500w" sizes="(max-width: 580px) 90vw, 40vw" alt="Catherine et Titou avec un bonnet blanc" width="1500" height="2000" loading="lazy" decoding="async"></button></figure>
+      </div>
+      <figure class="photo paper family-closing"><button class="photo-image" data-photo data-full="assets/photos/famille-ensemble.webp" aria-label="Agrandir : Catherine et sa famille devant une pyramide"><img src="assets/photos/famille-ensemble.webp" srcset="assets/photos/famille-ensemble-640.webp 640w, assets/photos/famille-ensemble-1200.webp 1200w, assets/photos/famille-ensemble.webp 1600w" sizes="(max-width: 580px) 90vw, 40vw" alt="Catherine et sa famille devant une pyramide" width="1600" height="1200" loading="lazy" decoding="async"></button></figure>
     </section>
 
     <div class="passage"><header class="wall" id="salle-2"><span class="room-number">Salle II</span><h2>Nous avons la chance de faire partie de ta famille</h2><span class="wall-line" aria-hidden="true"></span></header></div>
     <section class="room roots" aria-labelledby="titre-2">
       <h2 class="sr-only" id="titre-2">Nous avons la chance de faire partie de ta famille</h2>
-      <div class="composition roots-opening"><div class="text-placeholder written"><span class="eyebrow">Les racines</span><p>Le texte de la famille prendra place ici.</p><span class="fine-rule" aria-hidden="true"></span></div><figure class="photo paper portrait"><button class="photo-placeholder cream" data-photo aria-label="Ouvrir la photographie 1 de la salle II"><span class="placeholder-note">Photographie 01<small>À venir</small></span></button></figure></div>
-      <div class="composition triptych"><figure class="photo paper"><button class="photo-placeholder rose" data-photo aria-label="Ouvrir la photographie 2 de la salle II"><span class="placeholder-note">Photographie 02<small>À venir</small></span></button></figure><figure class="photo paper portrait"><button class="photo-placeholder mauve" data-photo aria-label="Ouvrir la photographie 3 de la salle II"><span class="placeholder-note">Photographie 03<small>À venir</small></span></button></figure><figure class="photo paper"><button class="photo-placeholder cream" data-photo aria-label="Ouvrir la photographie 4 de la salle II"><span class="placeholder-note">Photographie 04<small>À venir</small></span></button></figure></div>
-      <div class="book-alcove"><span class="eyebrow">Des souvenirs à feuilleter</span><button class="book-cover" data-book="" aria-haspopup="dialog"><span class="book-detail" aria-hidden="true">✳</span><span>Le livre<br>de ta sœur</span><small>Ouvrir le livre ↗</small></button><p>Le livre sera ajouté ici.</p></div>
-      <div class="composition voices duo"><div class="video-piece"><button class="video-placeholder light" data-video="" aria-label="Ouvrir le message vidéo 1 de la salle II"><span class="play" aria-hidden="true">▷</span><span>Message vidéo 01<small>À venir</small></span></button></div><div class="video-piece lowered"><button class="video-placeholder" data-video="" aria-label="Ouvrir le message vidéo 2 de la salle II"><span class="play" aria-hidden="true">▷</span><span>Message vidéo 02<small>À venir</small></span></button></div></div>
-      <figure class="photo paper landscape single"><button class="photo-placeholder rose" data-photo aria-label="Ouvrir la photographie 5 de la salle II"><span class="placeholder-note">Photographie 05<small>À venir</small></span></button></figure>
+      <div class="composition roots-memories">
+        <figure class="video-piece">
+          <button class="video-card" data-video="assets/videos/margny-et-filipaz.mp4" data-poster="assets/posters/margny-et-filipaz.webp" data-title="Un message de Margny et Filipaz" aria-label="Lire : Un message de Margny et Filipaz"><img src="assets/posters/margny-et-filipaz.webp" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true">▷</span></button>
+          <figcaption>Margny et Filipaz</figcaption>
+        </figure>
+        <figure class="photo paper">
+          <button class="photo-image" data-photo data-full="assets/photos/margny-et-filipaz.webp" aria-label="Agrandir la photographie de Margny et Filipaz"><img src="assets/photos/margny-et-filipaz.webp" srcset="assets/photos/margny-et-filipaz-640.webp 640w, assets/photos/margny-et-filipaz-1200.webp 1200w, assets/photos/margny-et-filipaz.webp 2000w" sizes="(max-width: 700px) 88vw, 45vw" alt="Un souvenir en famille, réunis autour de fleurs roses" width="2000" height="1500" loading="lazy" decoding="async"></button>
+        </figure>
+      </div>
+      <div class="composition roots-book-and-video">
+        <div class="book-alcove book-real">
+          <span class="eyebrow">Des souvenirs à feuilleter</span>
+          <button class="book-cover book-with-cover" data-book="assets/books/livre-50-ans-miteux.pdf" data-pages="assets/books/miteux-page-" data-page-count="7" data-title="Pour Miteux : 5 souvenirs pour 5 décennies" aria-label="Feuilleter le livre : Pour Miteux" aria-haspopup="dialog"><img src="assets/books/miteux-page-1.webp" alt="Couverture du livre Pour Miteux : 5 souvenirs pour 5 décennies, par Vava" width="1709" height="1709" loading="lazy" decoding="async"></button>
+          <p>Feuilleter le livre <span aria-hidden="true">↗</span></p>
+        </div>
+        <figure class="video-piece">
+          <button class="video-card" data-video="assets/videos/annek.mp4" data-poster="assets/posters/annek.webp" data-title="Un message d’AnneK" aria-label="Lire : Un message d’AnneK"><img src="assets/posters/annek.webp" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true">▷</span></button>
+          <figcaption>AnneK</figcaption>
+        </figure>
+      </div>
+      <article class="family-letter" aria-label="Le texte de Maryvonne">
+        <p>Bon anniversaire  à  Catherine  Cutier  d'abord  Catherine  Fontaine !
+50 ans que  nous  nous  fréquentons  ....
+Plein  d'anecdotes  te concernant  évidemment...
+Entre autres  le "problème "que  tu me posais pour  l'appréciation  et la notation de tes rédactions  pendant  ta 3ème  au collège...
+C'est  à  ma collègue  Madame  Peltier que  je demandais  d'intervenir  pour  ne pas  être  accusée  de favoritisme...
+Et l'image  de toi  et André  devant le buffet  des desserts  sur le bateau  Aîda  remontant  le Nil...
+Et les crabes dévorés  au Kontiki...
+Et ton dernier  passage  à  Ramatuelle  en juin...
+Et surtout ton sourire  et ta sérénité....
+Je te  souhaite  un formidable  demi siècle  et de poursuivre la belle  route sur  laquelle  tu es si bien  engagée !
+Avec  toute  mon  amitié 
+Je t'embrasse
+Maryvonne</p>
+        <span class="fine-rule" aria-hidden="true"></span>
+      </article>
     </section>
 
     <div class="passage"><header class="wall" id="salle-3"><span class="room-number">Salle III</span><h2>Nous avons la chance de t’appeler notre famille d’âme</h2><span class="wall-line" aria-hidden="true"></span></header></div>

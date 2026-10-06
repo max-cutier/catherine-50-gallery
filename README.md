@@ -1,6 +1,31 @@
 # Catherine — 50 ans
 
-Premier prototype d’une galerie familiale statique. Le contenu visible est en français. Les emplacements abstraits sont explicitement marqués « à venir » : aucune photographie, histoire ou vidéo personnelle n’a été inventée.
+Galerie familiale statique en cours de création. L’accueil et les salles I et II contiennent les médias et textes fournis par la famille. Les salles III et IV conservent leurs emplacements « à venir ». Le contenu visible est en français.
+
+## Voir le site
+
+Le dépôt GitHub et la demande de fusion affichent le code, pas une version hébergée du site. Pour une visite locale durable, extraire entièrement `catherine-gallery.zip`, puis ouvrir le dossier `catherine-gallery` et double-cliquer sur `index.html`. Si Windows ouvre un éditeur, faire **clic droit → Ouvrir avec → Microsoft Edge** (ou Chrome/Firefox). Garder le dossier `assets` à côté du fichier : ne pas ouvrir `index.html` depuis l’intérieur du ZIP. Les photographies, vidéos et sept pages du livre se consultent ainsi sans serveur ni installation.
+
+Le lien `http://127.0.0.1:8766/` utilisé pendant les vérifications ne fonctionne que lorsque le serveur de prévisualisation est en cours d’exécution. Il ne constitue pas une adresse publiée permanente.
+
+## Où ajouter mes fichiers ?
+
+Les dossiers `assets` se trouvent à côté de `index.html` dans le projet :
+
+| Contenu | Dossier | Exemple actuel |
+| --- | --- | --- |
+| Photographies optimisées | `assets/photos/` | `famille-coucher-soleil.webp` |
+| Images d’aperçu des vidéos | `assets/posters/` | `message-max.webp` |
+| Vidéos optimisées | `assets/videos/` | `message-max.mp4` |
+| Livre PDF | `assets/books/` | à ajouter |
+
+Sur votre ordinateur : copier les fichiers destinés au site dans ces dossiers, puis remplacer leur chemin dans `index.html` (exemples ci-dessous). Ajouter un fichier ne l’affiche pas automatiquement : il faut aussi le relier à une photographie ou un bouton vidéo de la page. Utiliser des noms simples, sans espaces ni accents, et conserver leur orthographe exacte.
+
+Sur GitHub : ouvrir le dossier voulu sur la branche de travail, choisir **Add file → Upload files**, sélectionner les copies optimisées puis enregistrer les fichiers. Modifier ensuite `index.html` sur la même branche pour utiliser leurs chemins relatifs. Une demande de fusion permet de revoir le résultat avant de l’intégrer à `main`. Le dossier local et le dépôt GitHub sont des copies distinctes ; un ajout local doit être envoyé au dépôt pour apparaître dans une version hébergée.
+
+Vous pouvez aussi continuer à joindre les originaux dans ce chat avec les indications de salle et d’ordre ; je préparerai leurs copies et les intégrerai au projet existant. Conserver les originaux dans votre dossier `50ans Maman`, séparément du dépôt.
+
+La révision de l’accueil utilise `Family Photo.jpeg`. La salle I présente le poème exact de son Doudou avec `Mom and Dad Photo.JPG` à droite, puis les vidéos de danse, de Max et de Titou, le collage des six photographies restantes et `Family Photo 2.jpeg` en conclusion. La salle II présente Margny et Filipaz en vidéo à gauche, leur photographie à droite, puis le livre à gauche et AnneK en vidéo à droite ; elle se termine par le texte exact de Maryvonne. Les WebP respectent l’orientation et le cadrage complet ; trois tailles permettent au navigateur de choisir une copie adaptée. Les MP4 H.264/AAC et leurs affiches sont préparés à partir des originaux sans les modifier. La compression et le redimensionnement sont techniques ; aucune retouche esthétique, aucun montage ni coupe n’a été appliqué.
 
 ## Ouvrir et modifier
 
@@ -9,7 +34,7 @@ Ouvrir `index.html` directement dans un navigateur, ou servir ce dossier avec un
 - `index.html` : contenu et compositions des salles, dans l’ordre de lecture.
 - `styles.css` : palette, typographie, espacements et compositions réutilisables.
 - `script.js` : apparition discrète des titres et visionneuse commune.
-- `assets/photos/`, `posters/`, `videos/`, `books/` : copies optimisées à ajouter ultérieurement.
+- `assets/photos/`, `posters/`, `videos/`, `books/` : copies optimisées ; les médias de l’accueil et de la salle I sont déjà inclus.
 - `assets/paper.svg` : texture abstraite légère, sans photographie personnelle.
 
 La maquette utilise des polices système (Georgia et Segoe UI), sans requête vers un fournisseur de polices. Elle fonctionne aussi à partir d’un sous-dossier, grâce aux chemins relatifs.
@@ -43,7 +68,9 @@ Remplacer éventuellement le fond du bouton par une image d’affiche (`img` ave
 
 ### Livre
 
-Renseigner `data-book="assets/books/livre.pdf"` sur la couverture. La visionneuse ouvre le PDF dans un iframe, avec un lien de secours vers un nouvel onglet. Le PDF n’est demandé qu’à l’ouverture. La pagination dépend du lecteur PDF du navigateur ; un lecteur de pages plus élaboré pourra remplacer le contenu de la visionneuse sans refaire la salle. Le navigateur mobile peut préférer le lien de secours. Un PDF externe doit autoriser son affichage dans un iframe. La couverture peut ensuite recevoir l’image réelle du livre.
+Le livre de la salle II utilise une copie intacte du PDF `assets/books/livre-50-ans-miteux.pdf` et sept pages rendues en WebP (`miteux-page-1.webp` à `miteux-page-7.webp`). La couverture est la première page. `data-pages="assets/books/miteux-page-"` et `data-page-count="7"` activent le lecteur intégré : pages précédente/suivante, flèches du clavier, agrandissement avec défilement et enregistrement facultatif du PDF. La page sélectionnée est chargée à la demande. Le lecteur reste dans le dialogue et dans le même onglet ; il fonctionne aussi depuis le dossier local et sur téléphone, sans bibliothèque PDF externe.
+
+Pour un autre livre, préparer les pages correspondantes et remplacer ce préfixe, leur nombre et le chemin PDF. Une couverture portant seulement `data-book="assets/books/livre.pdf"` conserve la solution simple par iframe et son lien de secours ; cette solution dépend alors du lecteur PDF du navigateur.
 
 ### Textes et extension du grand hall
 
@@ -51,7 +78,7 @@ Remplacer les blocs `text-placeholder` par les textes fournis. Le poème doit co
 
 ## Interactions et accessibilité
 
-Le défilement reste natif. Chaque passage est un panneau rose plein écran, maintenu brièvement par `position: sticky`, qui recouvre la fin de la salle précédente puis révèle la suivante. Seuls les titres utilisent une animation d’opacité et de déplacement légère. La préférence de réduction des mouvements est respectée. Sans JavaScript, les salles et les titres restent visibles ; les visionneuses nécessitent JavaScript.
+Le défilement reste natif. Chaque passage est un panneau rose plein écran, maintenu brièvement par `position: sticky`, qui remplace visuellement la salle précédente puis révèle la suivante. Les sections restent dans le flux normal, avec un espace après chaque contenu : le panneau ne masque ni la phrase de sincérité, ni un texte, ni une photographie. Seuls les titres utilisent une animation d’opacité et de déplacement légère. La préférence de réduction des mouvements est respectée. Sans JavaScript, les salles et les titres restent visibles ; les visionneuses nécessitent JavaScript.
 
 Le dialogue natif gère le focus et la touche Échap. La fermeture interrompt le média et restitue le focus au bouton d’origine. Aucun lecteur, PDF ou grand média n’est chargé en arrière-plan.
 
