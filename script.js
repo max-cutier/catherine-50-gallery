@@ -188,14 +188,6 @@ if (friendsCollage) {
     const bottoms = Array(columns).fill(0);
     friendsCollage.classList.add('is-staggered');
     [...friendsCollage.children].forEach(item => {
-      if (item.classList.contains('friends-finale')) {
-        const top = Math.max(...bottoms);
-        item.style.width = `${width}px`;
-        item.style.left = '0px';
-        item.style.top = `${top}px`;
-        bottoms.fill(top + item.getBoundingClientRect().height + gap);
-        return;
-      }
       const column = bottoms.indexOf(Math.min(...bottoms));
       item.style.width = `${tileWidth}px`;
       item.style.left = `${column * (tileWidth + gap)}px`;
